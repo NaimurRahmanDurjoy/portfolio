@@ -1,0 +1,33 @@
+[
+  {
+    "id": "exp-1",
+    "company": "Innovation Information System Ltd.",
+    "position": "Junior Software Developer",
+    "duration": {
+      "start": "Jan 2025",
+      "end": "Present"
+    },
+    "responsibilities": [
+      "Develop and maintain enterprise-grade web applications utilizing Laravel, Vue 3, and Inertia.js.",
+      "Design and implement scalable database schemas and complex backend architectures.",
+      "Modernize legacy software solutions into high-performance, real-time web applications using WebSockets.",
+      "Collaborate with cross-functional teams to integrate and optimize system features such as inventory management and real-time notifications."
+    ],
+    "achievements": [
+      "Successfully led the migration of a legacy polling notification system to a push-based WebSocket architecture using Laravel Reverb.",
+      "Built the DevAdmin system diagnostic suite, enabling real-time monitoring of queues, cache, and system logs."
+    ],
+    "technologies": [
+      "Laravel",
+      "Vue 3",
+      "Inertia.js",
+      "Tailwind CSS",
+      "MySQL",
+      "WebSockets"
+    ],
+    "metrics": [
+      "Reduced notification delivery latency by 95% via WebSockets.",
+      "Improved system observability for system administrators by centralizing diagnostic tools."
+    ]
+  }
+]

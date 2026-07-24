@@ -1,0 +1,17 @@
+{
+  "id": "profile-main",
+  "name": "Naimur Rahman",
+  "title": "Software Developer",
+  "headline": "Building robust, scalable, and modern enterprise web applications.",
+  "summary": "A passionate Software Developer specializing in the Laravel ecosystem and modern frontend frameworks like Vue and React. I focus on creating high-performance, scalable architectures for complex business logic, from ERP systems to real-time notification architectures.",
+  "location": "Bangladesh",
+  "email": "naimurrahman9030@gmail.com",
+  "phone": "+880 1761009030",
+  "avatar": "/images/avatar.jpg",
+  "resumeUrl": "/docs/resume.pdf",
+  "availability": true,
+  "socialLinks": {
+    "github": "https://github.com/naimurRahmanDurjoy",
+    "linkedin": "https://linkedin.com/in/-naimur-rahman-"
+  }
+}

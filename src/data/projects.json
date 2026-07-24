@@ -1,0 +1,99 @@
+[
+  {
+    "id": "proj-1",
+    "slug": "resdine-erp",
+    "title": "Resdine ERP",
+    "subtitle": "Complete Restaurant Management System",
+    "type": "Personal",
+    "category": "ERP",
+    "description": "A comprehensive, all-in-one Enterprise Resource Planning system specifically tailored for modern restaurants. It handles everything from real-time order tracking and kitchen display systems to inventory management, recipe configuration, and staff roles.",
+    "problemStatement": "Restaurants often use disjointed software for POS, inventory, and back-office accounting, leading to data silos, inconsistencies, and high operational overhead.",
+    "solution": "Developed a unified ERP platform integrating POS, robust inventory control with recipe-level ingredient tracking, and an advanced DevAdmin panel for system health and cache monitoring.",
+    "thumbnail": "/images/projects/resdine-thumbnail.jpg",
+    "gallery": [
+      "/images/projects/resdine-1.jpg",
+      "/images/projects/resdine-2.jpg"
+    ],
+    "technologies": [
+      "Laravel",
+      "Vue 3",
+      "Inertia.js",
+      "Tailwind CSS",
+      "Reverb (WebSockets)",
+      "MySQL"
+    ],
+    "features": [
+      "Real-time event-driven notifications",
+      "Advanced Inventory & Recipe Consistency Analysis",
+      "Job-wise Due Collection",
+      "Granular DevAdmin System Tools"
+    ],
+    "challenges": [
+      "Migrating from legacy database-polling to a push-based WebSocket architecture",
+      "Ensuring accurate stock deduction based on complex recipe configurations"
+    ],
+    "architecture": "Event-driven architecture utilizing Laravel queues for background jobs and Reverb for real-time WebSocket communication.",
+    "databaseDesign": "Relational schema prioritizing referential integrity for financial and stock data.",
+    "deployment": "Deployed on Linux VPS using Nginx, configured with Laravel Horizon for queue management.",
+    "liveUrl": "https://resdine.com",
+    "githubUrl": "https://github.com/naim/resdine",
+    "featured": true
+  },
+  {
+    "id": "proj-2",
+    "slug": "dfms",
+    "title": "DFMS",
+    "subtitle": "Digital File Management System",
+    "type": "Client",
+    "category": "SaaS",
+    "description": "A robust document and file management solution designed for corporate clients to digitize, organize, and securely share their internal files and records.",
+    "problemStatement": "The client struggled with decentralized physical records and an unstructured digital file sharing process, causing delays in audits and day-to-day operations.",
+    "solution": "Built a secure, role-based document management platform with advanced search capabilities, version control, and comprehensive audit logs.",
+    "thumbnail": "/images/projects/dfms-thumbnail.jpg",
+    "gallery": [],
+    "technologies": [
+      "Laravel",
+      "React",
+      "PostgreSQL",
+      "AWS S3"
+    ],
+    "features": [
+      "Role-Based Access Control (RBAC)",
+      "File Versioning",
+      "Activity Logging",
+      "Secure File Storage"
+    ],
+    "challenges": [
+      "Implementing efficient and secure handling of large file uploads.",
+      "Designing an intuitive folder and permission inheritance system."
+    ],
+    "featured": true
+  },
+  {
+    "id": "proj-3",
+    "slug": "recipesys",
+    "title": "RecipeSys",
+    "subtitle": "Food Manufacturing Recipe Manager",
+    "type": "Company",
+    "category": "Enterprise",
+    "description": "An internal company tool built to standardize and scale food manufacturing processes by meticulously managing ingredient ratios, batch sizing, and nutritional calculations.",
+    "problemStatement": "Inconsistent batch outputs due to manual recipe scaling and lack of centralized ingredient data.",
+    "solution": "Engineered a centralized system that dynamically recalculates ingredient quantities and nutritional info based on target batch sizes.",
+    "thumbnail": "/images/projects/recipesys-thumbnail.jpg",
+    "gallery": [],
+    "technologies": [
+      "Vue.js",
+      "Laravel API",
+      "MySQL"
+    ],
+    "features": [
+      "Dynamic Batch Scaling",
+      "Nutritional Value Calculation",
+      "Ingredient Cost Analysis"
+    ],
+    "challenges": [
+      "Handling complex unit conversions across various measurement systems."
+    ],
+    "featured": false
+  }
+]

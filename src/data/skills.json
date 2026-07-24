@@ -1,0 +1,17 @@
+[
+  {
+    "id": "skill-1",
+    "category": "Backend",
+    "items": ["PHP", "Laravel", "MySQL", "PostgreSQL", "REST APIs", "WebSockets (Reverb)"]
+  },
+  {
+    "id": "skill-2",
+    "category": "Frontend",
+    "items": ["JavaScript", "TypeScript", "React", "Vue 3", "Inertia.js", "Tailwind CSS"]
+  },
+  {
+    "id": "skill-3",
+    "category": "Tools & Others",
+    "items": ["Git", "Docker", "AWS S3", "Linux/VPS", "Nginx", "Framer Motion"]
+  }
+]
