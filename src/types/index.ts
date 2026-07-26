@@ -108,3 +108,17 @@ export interface SEOData {
   openGraphImage: string;
   canonicalUrl: string;
 }
+
+export interface ClientService {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+  features: string[];
+}
+
+export interface Stat {
+  id: string;
+  value: string;
+  label: string;
+}

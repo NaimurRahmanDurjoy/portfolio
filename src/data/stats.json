@@ -1,0 +1,32 @@
+[
+  {
+    "id": "stat-1",
+    "value": "1.5+",
+    "label": "Years Experience"
+  },
+  {
+    "id": "stat-2",
+    "value": "3+",
+    "label": "Enterprise Projects"
+  },
+  {
+    "id": "stat-3",
+    "value": "100K+",
+    "label": "Database Records"
+  },
+  {
+    "id": "stat-4",
+    "value": "40+",
+    "label": "Critical Bugs Fixed"
+  },
+  {
+    "id": "stat-5",
+    "value": "99%",
+    "label": "Client Satisfaction"
+  },
+  {
+    "id": "stat-6",
+    "value": "24/7",
+    "label": "System Reliability"
+  }
+]

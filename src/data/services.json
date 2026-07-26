@@ -1,0 +1,38 @@
+[
+  {
+    "id": "service-1",
+    "title": "Custom Enterprise Web Applications",
+    "description": "End-to-end development of scalable, secure, and robust web applications tailored to your complex business needs.",
+    "icon": "Monitor",
+    "features": [
+      "Laravel backend architecture",
+      "React/Vue frontend development",
+      "API design and integration",
+      "High performance & scalability"
+    ]
+  },
+  {
+    "id": "service-2",
+    "title": "ERP & Business Management Systems",
+    "description": "Comprehensive internal tools, dashboards, and ERP solutions to streamline your business operations and data flow.",
+    "icon": "Briefcase",
+    "features": [
+      "Custom CRM/ERP development",
+      "Automated workflow systems",
+      "Real-time analytics dashboards",
+      "Secure role-based access control"
+    ]
+  },
+  {
+    "id": "service-3",
+    "title": "API & System Integration",
+    "description": "Seamless integration of third-party services, legacy systems, and external APIs into your existing software infrastructure.",
+    "icon": "Link",
+    "features": [
+      "Payment gateway integration",
+      "Legacy system modernization",
+      "Third-party API connections",
+      "Microservices architecture"
+    ]
+  }
+]

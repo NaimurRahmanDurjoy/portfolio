@@ -6,10 +6,11 @@ import { Button } from "@/components/ui/button"
 
 const navLinks = [
   { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
   { name: "Projects", path: "/projects" },
   { name: "Experience", path: "/experience" },
   { name: "Articles", path: "/articles" },
-  { name: "About", path: "/about" },
+  { name: "Contact", path: "/contact" },
 ]
 
 export function Navbar() {
