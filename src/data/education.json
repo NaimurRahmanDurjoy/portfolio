@@ -1,1 +1,29 @@
-[]
+[
+    {
+        "id": "edu-1",
+        "institution": "Daffodil International University (DIU), Dhaka",
+        "degree": "Bachelor of Science",
+        "fieldOfStudy": "Computer Science & Engineering",
+        "startDate": "2020",
+        "endDate": "2024",
+        "grade": "CGPA : 3.71/4.00"
+    },
+    {
+        "id": "edu-2",
+        "institution": "Sirajganj Govt. College, Sirajganj",
+        "degree": "Higher Secondary Certificate (HSC)",
+        "fieldOfStudy": "Science",
+        "startDate": "2017",
+        "endDate": "2018",
+        "grade": "GPA : 4.25/5.00"
+    },
+    {
+        "id": "edu-3",
+        "institution": "Power Development Board Secondary School, Sirajganj",
+        "degree": "Secondary School Certificate (SSC)",
+        "fieldOfStudy": "Science",
+        "startDate": "2015",
+        "endDate": "2016",
+        "grade": "GPA : 5.00/5.00"
+    }
+]

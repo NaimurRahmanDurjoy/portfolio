@@ -17,8 +17,7 @@ export default function Experience() {
       ) : error ? (
         <div className="text-center text-destructive py-20">Failed to load experience data.</div>
       ) : (
-        <div className="flex flex-col gap-8 relative">
-          <div className="hidden md:block absolute left-[22%] top-0 bottom-0 w-px bg-border/50"></div>
+        <div className="flex flex-col gap-0 relative overflow-hidden px-4 md:px-0 mt-8">
           {experience?.map((exp) => (
             <AnimatedWrapper key={exp.id} variants={slideUp}>
               <ExperienceTimeline experience={exp} />

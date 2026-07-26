@@ -2,7 +2,7 @@ import type { Project } from "@/types";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, GitBranch } from "lucide-react";
+import { ExternalLink, GitBranch, } from "lucide-react";
 
 interface ProjectCardProps {
   project: Project;
@@ -13,9 +13,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
     <div className="flex flex-col rounded-xl border border-border glass overflow-hidden transition-all hover:border-primary/50 group">
       <div className="relative aspect-video overflow-hidden bg-surface/50">
         {project.thumbnail ? (
-          <img 
-            src={project.thumbnail} 
-            alt={project.title} 
+          <img
+            src={project.thumbnail}
+            alt={project.title}
             className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
           />
