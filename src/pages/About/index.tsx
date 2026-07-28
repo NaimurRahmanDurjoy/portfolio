@@ -33,9 +33,13 @@ export default function About() {
         <div className="flex flex-col md:flex-row gap-12 items-start">
           <AnimatedWrapper variants={slideUp} className="md:w-1/3 w-full flex flex-col gap-8">
             <div className="w-full aspect-square rounded-2xl overflow-hidden glass border border-border shadow-2xl relative">
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-accent/30 flex items-center justify-center">
-                <span className="text-2xl font-bold">Photo</span>
-              </div>
+              {profile.avatar ? (
+                <img src={profile.avatar} alt={profile.name || "Profile Photo"} className="w-full h-full object-cover" />
+              ) : (
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-accent/30 flex items-center justify-center">
+                  <span className="text-2xl font-bold">Photo</span>
+                </div>
+              )}
             </div>
 
             <div className="flex flex-col gap-6 items-center w-full">
@@ -57,7 +61,7 @@ export default function About() {
             </div>
           </AnimatedWrapper>
 
-          <AnimatedWrapper variants={slideUp} className="md:w-2/3 w-full flex flex-col gap-6">
+          <AnimatedWrapper variants={slideUp} className="md:w-2/3 w-full flex flex-col gap-6 max-w-3xl">
             <h3 className="text-3xl font-bold tracking-tight">Background</h3>
             <p className="text-lg text-muted-foreground leading-relaxed">
               {profile.summary}

@@ -15,7 +15,8 @@
     ],
     "achievements": [
       "Successfully led the migration of a legacy polling notification system to a push-based WebSocket architecture using Laravel Reverb.",
-      "Built the DevAdmin system diagnostic suite, enabling real-time monitoring of queues, cache, and system logs."
+      "Built the DevAdmin system diagnostic suite, enabling real-time monitoring of queues, cache, and system logs.",
+      "Optimized complex relational database queries and MySQL schemas across 100K+ records, improving page load speeds by 30%."
     ],
     "technologies": [
       "Laravel",
@@ -27,7 +28,8 @@
     ],
     "metrics": [
       "Reduced notification delivery latency by 95% via WebSockets.",
-      "Improved system observability for system administrators by centralizing diagnostic tools."
+      "Improved system observability for system administrators by centralizing diagnostic tools.",
+      "Reduced user-reported errors by 20% by resolving 40+ critical legacy bugs."
     ]
   }
 ]

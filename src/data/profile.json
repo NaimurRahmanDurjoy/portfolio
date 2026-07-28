@@ -7,7 +7,7 @@
   "location": "Bangladesh",
   "email": "naimurrahman9030@gmail.com",
   "phone": "+880 1761009030",
-  "avatar": "/images/avatar.jpg",
+  "avatar": "../assets/profile.png",
   "resumeUrl": "/docs/resume.pdf",
   "availability": true,
   "socialLinks": {

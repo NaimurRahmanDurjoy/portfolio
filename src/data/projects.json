@@ -41,10 +41,44 @@
   },
   {
     "id": "proj-2",
+    "slug": "career-os",
+    "title": "Career OS",
+    "subtitle": "AI-Powered Resume Analysis & ATS",
+    "type": "Personal",
+    "category": "AI/SaaS",
+    "description": "An AI-powered career OS platform designed to asynchronously parse, extract, and match candidate resume data with job descriptions using large language models.",
+    "problemStatement": "Manual resume parsing and matching is time-consuming and often inaccurate, while standard applicant tracking systems rely on basic keyword matching instead of semantic AI.",
+    "solution": "Developed a full-stack platform featuring dual-layer Zod/Laravel validation, background queue workers for OpenAI integration, and centralized Zustand state for real-time client updates.",
+    "thumbnail": "/images/projects/careeros-thumbnail.jpg",
+    "gallery": [],
+    "technologies": [
+      "Laravel API",
+      "PostgreSQL",
+      "React",
+      "Zustand",
+      "Zod",
+      "Tailwind CSS",
+      "OpenAI API"
+    ],
+    "features": [
+      "Background Async AI Processing via Queues",
+      "Real-time Job Status Polling",
+      "Dual-layer Input Validation",
+      "Google OAuth Integration"
+    ],
+    "challenges": [
+      "Ensuring stable background processing for AI response times.",
+      "Keeping client state synchronized with backend job status."
+    ],
+    "architecture": "Laravel backend utilizing queues and background workers communicating with OpenAI, supplying data to a React single-page application with centralized Zustand state.",
+    "featured": true
+  },
+  {
+    "id": "proj-3",
     "slug": "dfms",
     "title": "DFMS",
     "subtitle": "Digital File Management System",
-    "type": "Client",
+    "type": "Company",
     "category": "SaaS",
     "description": "A robust document and file management solution designed for corporate clients to digitize, organize, and securely share their internal files and records.",
     "problemStatement": "The client struggled with decentralized physical records and an unstructured digital file sharing process, causing delays in audits and day-to-day operations.",
@@ -53,9 +87,10 @@
     "gallery": [],
     "technologies": [
       "Laravel",
-      "React",
-      "PostgreSQL",
-      "AWS S3"
+      "MySQL",
+      "Bootstrap CSS",
+      "AJAX",
+      "JQuery"
     ],
     "features": [
       "Role-Based Access Control (RBAC)",
@@ -70,7 +105,7 @@
     "featured": true
   },
   {
-    "id": "proj-3",
+    "id": "proj-4",
     "slug": "recipesys",
     "title": "RecipeSys",
     "subtitle": "Food Manufacturing Recipe Manager",
@@ -82,9 +117,11 @@
     "thumbnail": "/images/projects/recipesys-thumbnail.jpg",
     "gallery": [],
     "technologies": [
-      "Vue.js",
-      "Laravel API",
-      "MySQL"
+      "Laravel",
+      "MySQL",
+      "Bootstrap CSS",
+      "AJAX",
+      "JQuery"
     ],
     "features": [
       "Dynamic Batch Scaling",

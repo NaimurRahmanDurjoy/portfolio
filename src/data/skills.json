@@ -2,16 +2,47 @@
   {
     "id": "skill-1",
     "category": "Backend",
-    "items": ["PHP", "Laravel", "MySQL", "PostgreSQL", "REST APIs", "WebSockets (Reverb)"]
+    "items": [
+      "PHP",
+      "Laravel",
+      "REST APIs",
+      "WebSockets (Reverb)"
+    ]
   },
   {
     "id": "skill-2",
     "category": "Frontend",
-    "items": ["JavaScript", "TypeScript", "React", "Vue 3", "Inertia.js", "Tailwind CSS"]
+    "items": [
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Vue 3",
+      "Inertia.js",
+      "Tailwind CSS",
+      "Bootstrap CSS",
+      "AJAX",
+      "JQuery"
+    ]
   },
   {
     "id": "skill-3",
-    "category": "Tools & Others",
-    "items": ["Git", "Docker", "AWS S3", "Linux/VPS", "Nginx", "Framer Motion"]
+    "category": "DevOps & Infrastructure",
+    "items": [
+      "Git",
+      "Github",
+      "Docker",
+      "Linux/VPS",
+      "Chrome Dev Tools",
+      "Nginx"
+    ]
+  },
+  {
+    "id": "skill-4",
+    "category": "Database & AI",
+    "items": [
+      "MySQL",
+      "PostgreSQL",
+      "OpenAI API"
+    ]
   }
 ]
