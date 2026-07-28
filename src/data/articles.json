@@ -1,1 +1,50 @@
-[]
+[
+    {
+        "id": "art-1",
+        "title": "Scaling Real-Time Notifications with Laravel Reverb",
+        "slug": "scaling-laravel-reverb-websockets",
+        "excerpt": "How to transition from expensive database polling to a push-based WebSocket architecture using Laravel 11 and Reverb to achieve 95% reduced latency.",
+        "content": "For years, Laravel developers relied on third-party services like Pusher to handle real-time WebSockets, or resorted to polling the database via AJAX for notifications. With the introduction of Laravel Reverb, first-party WebSocket support has fundamentally changed how we build interactive applications.\n\nIn one of my recent enterprise ERP deployments, the legacy system polled the server every 10 seconds to check for new kitchen orders and stock updates. By migrating to a push-based architecture utilizing Laravel Events and Reverb broadcasting, we reduced network requests horizontally by over 90% and cut delivery latency from ~10s to less than 50ms.\n\nThe real power of Reverb lies in its tight integration with Laravel Echo on the frontend, allowing for seamless private channels and presence monitoring without external dependencies.",
+        "tags": [
+            "Laravel",
+            "WebSockets",
+            "Reverb",
+            "Backend"
+        ],
+        "category": "Architecture",
+        "publishedDate": "2025-02-15",
+        "readingTime": "4 min read"
+    },
+    {
+        "id": "art-2",
+        "title": "Why Inertia.js is the Ultimate Vue 3 Stack",
+        "slug": "inertia-js-modern-vue-monolith",
+        "excerpt": "Stop building separate SPAs and APIs. Learn how Inertia.js bridges the gap between Laravel controllers and Vue 3 frontend components.",
+        "content": "Building a standard Single Page Application (SPA) usually involves creating a standalone React or Vue app, and a completely decoupled API backend. While this architecture is extremely flexible, it adds significant overhead: you have to manage CORS, API authentication, complex state management like Redux/Vuex, and duplicate routing.\n\nInertia.js allows you to build SPAs without building an API. By serving Vue 3 components directly from your Laravel controllers via Inertia responses, you keep the speed of an SPA but retain the simplicity of a classic server-rendered monolith.\n\nCombined with Tailwind CSS, this stack allows solo developers and small teams to ship robust, interactive SaaS products in half the time.",
+        "tags": [
+            "Vue 3",
+            "Inertia.js",
+            "Laravel",
+            "Frontend"
+        ],
+        "category": "Frontend Development",
+        "publishedDate": "2025-04-10",
+        "readingTime": "5 min read"
+    },
+    {
+        "id": "art-3",
+        "title": "State Management in React: Zustand vs Redux Toolkit",
+        "slug": "react-zustand-vs-redux",
+        "excerpt": "A deep dive into why enterprise React apps are migrating towards Zustand for centralized state, specifically in AI-driven workflows.",
+        "content": "Redux Toolkit is fantastic, but it carries a historically high amount of boilerplate. When building my AI-powered Career OS platform, I needed a fast, unopinionated way to track background OpenAI processing jobs and client UI state simultaneously.\n\nEnter Zustand. Zustand approaches state management by creating lightweight, hook-based stores. You don't need Context Providers wrapping your entire application, and you don't need complex dispatch reducers for simple boolean toggles.\n\nBy leveraging Zustand alongside Axios interceptors and Zod for frontend validation, I built a highly responsive dual-layer application that stays fully synced with backend Laravel background queues without heavily re-rendering parent components.",
+        "tags": [
+            "React",
+            "Zustand",
+            "State Management",
+            "JavaScript"
+        ],
+        "category": "React Ecosystem",
+        "publishedDate": "2025-06-22",
+        "readingTime": "6 min read"
+    }
+]
