@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    /* Light Theme (Future Ready) */
+    /* Light Theme (Gold/Bronze Palette) */
     --background: 210 40% 98%;
     --foreground: 222.2 84% 4.9%;
     --surface: 0 0% 100%;
@@ -17,16 +17,15 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 221.2 83.2% 53.3%;
-    /* #2563EB */
-    --primary-foreground: 210 40% 98%;
+    /* Primary: Rich Amber/Bronze Gold (#D97706) */
+    --primary: 37.7 92.1% 43.9%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 217.2 32.6% 17.5%;
-    /* #0F172A */
     --secondary-foreground: 210 40% 98%;
 
-    --accent: 188.7 94.5% 42.7%;
-    /* #06B6D4 */
+    /* Accent: Vibrant Gold (#F59E0B) */
+    --accent: 38 92% 50%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --muted: 214.3 31.8% 91.4%;
@@ -37,41 +36,35 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --ring: 37.7 92.1% 43.9%;
 
     --radius: 0.5rem;
   }
 
   .dark {
-    /* Dark Theme (Default) */
-    --background: 222 84% 4.9%;
-    /* #020617 */
-    --foreground: 210 40% 98%;
-    /* #F8FAFC */
-    --surface: 217 33% 17.5%;
-    /* #0F172A */
+    /* Dark Theme (Rich Slate + Metallic Gold) */
+    --background: 222 84% 4.9%;      /* #020617 */
+    --foreground: 210 40% 98%;     /* #F8FAFC */
+    --surface: 217 33% 17.5%;      /* #0F172A */
 
-    --card: 222 47% 11%;
-    /* #111827 */
+    --card: 222 47% 11%;           /* #111827 */
     --card-foreground: 210 40% 98%;
 
     --popover: 222 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 221.2 83.2% 53.3%;
-    /* #2563EB - Tech Indigo */
-    --primary-foreground: 210 40% 98%;
+    /* Primary: Warm Metallic Gold (#F59E0B) */
+    --primary: 38 92% 50%;
+    --primary-foreground: 222 84% 4.9%;
 
-    --secondary: 217 33% 17.5%;
-    /* #0F172A */
+    --secondary: 217 33% 17.5%;    /* #0F172A */
     --secondary-foreground: 210 40% 98%;
 
-    --accent: 38 92% 50%;
-    /* #F59E0B - Premium Gold */
+    /* Accent: Luminous Bright Gold (#FBBF24) */
+    --accent: 45 93% 47%;
     --accent-foreground: 222 84% 4.9%;
 
     --muted: 215 20.2% 65.1%;
-    /* #94A3B8 */
     --muted-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -79,7 +72,7 @@
 
     --border: 217 33% 17.5%;
     --input: 217 33% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --ring: 38 92% 50%;
   }
 }
 
