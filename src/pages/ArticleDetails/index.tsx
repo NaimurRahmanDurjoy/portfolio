@@ -54,7 +54,7 @@ export default function ArticleDetails() {
                         </div>
                     </div>
 
-                    <div className="prose prose-invert prose-lg max-w-none text-muted-foreground leading-relaxed">
+                    <div className="prose dark:prose-invert prose-lg max-w-none text-muted-foreground leading-relaxed">
                         {article.content.split('\n').map((paragraph: string, idx: number) => (
                             paragraph.trim() ? <p key={idx} className="mb-6">{paragraph}</p> : null
                         ))}
@@ -62,7 +62,9 @@ export default function ArticleDetails() {
 
                     <div className="flex flex-wrap gap-2 mt-8 pt-8 border-t border-border">
                         {article.tags.map((tag: string) => (
-                            <Badge key={tag} variant="secondary" className="bg-surface">{tag}</Badge>
+                            <Badge key={tag} variant="outline" className="px-3 py-1 bg-primary/10 text-primary border-primary/20 hover:bg-primary hover:text-primary-foreground transition-colors shadow-sm">
+                                {tag}
+                            </Badge>
                         ))}
                     </div>
                 </AnimatedWrapper>

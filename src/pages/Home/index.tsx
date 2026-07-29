@@ -30,7 +30,7 @@ export default function Home() {
   if (!profile) return null;
 
   return (
-    <div className="flex flex-col gap-12">
+    <div className="flex flex-col">
       <SEOHead
         title="Home"
         description={profile.headline}
@@ -51,7 +51,7 @@ export default function Home() {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-[3.8rem] font-black tracking-tight leading-[1.1] text-foreground">
-              Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Scalable & Intelligent</span> Web Architectures.
+              Software <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Engineer &</span> AI Enthuasiast.
             </h1>
 
             <p className="text-lg text-muted-foreground max-w-xl mx-auto md:mx-0 leading-relaxed pt-2">
@@ -60,7 +60,7 @@ export default function Home() {
 
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-6">
               <Button asChild size="lg" className="h-14 px-8 text-lg shadow-primary/25 shadow-xl hover:shadow-primary/40 transition-shadow rounded-xl">
-                <Link to="/projects">View Featured Work</Link>
+                <Link to="/projects">Explore My Work</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="h-14 px-8 text-lg glass border-border hover:bg-surface transition-colors rounded-xl">
                 <a href={profile.resumeUrl} target="_blank" rel="noopener noreferrer">Download Resume</a>
@@ -79,7 +79,7 @@ export default function Home() {
                 </a>
               )}
               {profile.email && (
-                <a href={`mailto:${profile.email}`} className="p-3 rounded-full text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors border border-border/50 hover:border-primary/30 glass" aria-label="Email">
+                <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${profile.email}`} target="_blank" rel="noopener noreferrer" className="p-3 rounded-full text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors border border-border/50 hover:border-primary/30 glass" aria-label="Email">
                   <Mail className="w-6 h-6" />
                 </a>
               )}
@@ -108,7 +108,7 @@ export default function Home() {
                     <Briefcase className="w-6 h-6" />
                   </div>
                   <div>
-                    <div className="text-2xl font-black text-foreground">3+</div>
+                    <div className="text-2xl font-black text-foreground">1.5+</div>
                     <div className="text-xs text-muted-foreground font-bold uppercase tracking-widest mt-0.5">Years Exp</div>
                   </div>
                 </div>

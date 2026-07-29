@@ -5,21 +5,45 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useProfile } from "@/hooks/useProfile";
-import { Mail, Phone, MapPin, GitBranch } from "lucide-react";
+import { Mail, Phone, MapPin, GitBranch, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
 
 export default function Contact() {
   const { data: profile } = useProfile();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
+    setSubmitStatus("idle");
+
+    const formData = new FormData(e.currentTarget);
+    formData.append("access_key", "2ac47a6f-3d71-4dcd-8285-69a2ab06e77d");
+
+    const object = Object.fromEntries(formData as any);
+    const json = JSON.stringify(object);
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: json
+      }).then((res) => res.json());
+
+      if (res.success) {
+        setSubmitStatus("success");
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (err) {
+      setSubmitStatus("error");
+    } finally {
       setIsSubmitting(false);
-      alert("Message sent! (Simulated)");
-    }, 1000);
+    }
   };
 
   return (
@@ -91,22 +115,40 @@ export default function Contact() {
           </div>
         </AnimatedWrapper>
 
-        <AnimatedWrapper variants={slideUp} className="glass p-8 rounded-xl border border-border">
+        <AnimatedWrapper variants={slideUp} className="glass p-8 rounded-xl border border-border flex flex-col h-full overflow-hidden">
           <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-            <div className="flex flex-col gap-2">
-              <Input id="name" required placeholder="Name" className="bg-surface" />
+
+          {submitStatus === "success" ? (
+            <div className="flex-1 flex flex-col items-center justify-center p-6 md:p-8 text-center bg-green-500/10 border border-green-500/20 rounded-xl">
+              <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-4">
+                <CheckCircle2 className="w-8 h-8 text-green-500" />
+              </div>
+              <h4 className="text-xl font-bold text-green-500 mb-2">Message Sent!</h4>
+              <p className="text-muted-foreground">Thank you for reaching out. I'll get back to you as soon as possible.</p>
             </div>
-            <div className="flex flex-col gap-2">
-              <Input id="email" type="email" required placeholder="Email" className="bg-surface" />
-            </div>
-            <div className="flex flex-col gap-2">
-              <Textarea id="message" required placeholder="Message" rows={5} className="bg-surface" />
-            </div>
-            <Button type="submit" disabled={isSubmitting} className="mt-4">
-              {isSubmitting ? "Sending..." : "Send Message"}
-            </Button>
-          </form>
+          ) : (
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+              <div className="flex flex-col gap-2">
+                <Input name="name" id="name" required placeholder="Name" className="bg-surface" />
+              </div>
+              <div className="flex flex-col gap-2">
+                <Input name="email" id="email" type="email" required placeholder="Email" className="bg-surface" />
+              </div>
+              <div className="flex flex-col gap-2">
+                <Textarea name="message" id="message" required placeholder="Message" rows={5} className="bg-surface" />
+              </div>
+
+              {submitStatus === "error" && (
+                <div className="text-red-500 text-sm p-3 bg-red-500/10 rounded-lg font-medium">
+                  Something went wrong. Please try again or use direct email.
+                </div>
+              )}
+
+              <Button type="submit" disabled={isSubmitting} className="mt-4">
+                {isSubmitting ? "Sending..." : "Send Message"}
+              </Button>
+            </form>
+          )}
         </AnimatedWrapper>
       </div>
     </SectionContainer>

@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom"
 import { cn } from "@/lib/utils"
 import { ThemeToggle } from "@/components/common/ThemeToggle"
 import { Button } from "@/components/ui/button"
+import { useProfile } from "@/hooks/useProfile"
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -16,6 +17,7 @@ const navLinks = [
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const location = useLocation()
+  const { data: profile } = useProfile()
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50)
@@ -56,7 +58,11 @@ export function Navbar() {
 
         <div className="flex items-center gap-4">
           <ThemeToggle />
-          <Button className="hidden md:inline-flex">Resume</Button>
+          {profile?.resumeUrl && (
+            <Button asChild className="hidden md:inline-flex rounded-lg px-6 hover:shadow-primary/20 hover:shadow-lg transition-all">
+              <a href={profile.resumeUrl} target="_blank" rel="noopener noreferrer">Resume</a>
+            </Button>
+          )}
           {/* Mobile Navigation Toggle could go here */}
         </div>
       </div>
