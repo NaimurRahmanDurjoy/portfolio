@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { Link, useLocation } from "react-router-dom"
+import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { ThemeToggle } from "@/components/common/ThemeToggle"
 import { Button } from "@/components/ui/button"
@@ -44,21 +45,32 @@ export function Navbar() {
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">Naimur Rahman</span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={cn(
-                "text-sm font-medium transition-colors hover:text-primary",
-                location.pathname === link.path
-                  ? "text-primary"
-                  : "text-muted-foreground"
-              )}
-            >
-              {link.name}
-            </Link>
-          ))}
+        <nav className="hidden md:flex items-center gap-1.5 pl-4 relative">
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.path;
+            return (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={cn(
+                  "relative text-sm font-semibold px-4 py-2 transition-all duration-300 z-10",
+                  isActive ? "text-primary dark:text-blue-400" : "text-muted-foreground hover:text-foreground"
+                )}
+              >
+                {link.name}
+                {isActive && (
+                  <motion.div
+                    layoutId="navbar-indicator"
+                    className="absolute inset-0 bg-primary/10 dark:bg-primary/20 rounded-full -z-10 shadow-[0_0_15px_rgba(37,99,235,0.1)] dark:shadow-[0_0_15px_rgba(59,130,246,0.25)] border border-primary/20 dark:border-primary/40"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+                {!isActive && (
+                  <div className="absolute inset-0 hover:bg-surface/50 dark:hover:bg-white/5 rounded-full -z-10 opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                )}
+              </Link>
+            )
+          })}
         </nav>
 
         <div className="flex items-center gap-4">
