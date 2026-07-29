@@ -19,9 +19,9 @@ export default function ProjectDetails() {
 
   return (
     <SectionContainer className="max-w-4xl">
-      <SEOHead 
-        title={`${project.title} - Case Study`} 
-        description={project.description} 
+      <SEOHead
+        title={`${project.title} - Case Study`}
+        description={project.description}
         image={project.thumbnail}
         type="article"
       />
@@ -35,7 +35,7 @@ export default function ProjectDetails() {
         </div>
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">{project.title}</h1>
         {project.subtitle && <h2 className="text-2xl text-muted-foreground mb-6">{project.subtitle}</h2>}
-        
+
         <div className="flex gap-4">
           {project.liveUrl && (
             <Button asChild>
@@ -52,7 +52,7 @@ export default function ProjectDetails() {
 
       {project.thumbnail && (
         <AnimatedWrapper variants={slideUp} className="mb-12 rounded-xl overflow-hidden border border-border shadow-2xl">
-          <img src={project.thumbnail} alt={project.title} className="w-full object-cover aspect-video" />
+          <img src={project.thumbnail} alt={project.title} className="w-full max-h-[60vh] object-contain rounded-xl border border-white/10 p-4 bg-surface/50" />
         </AnimatedWrapper>
       )}
 

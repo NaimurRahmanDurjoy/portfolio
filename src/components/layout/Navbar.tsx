@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { Link, useLocation } from "react-router-dom"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { ThemeToggle } from "@/components/common/ThemeToggle"
 import { Button } from "@/components/ui/button"
@@ -17,6 +17,7 @@ const navLinks = [
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const location = useLocation()
   const { data: profile } = useProfile()
 
@@ -30,7 +31,7 @@ export function Navbar() {
     <header
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300 border-b border-transparent",
-        isScrolled
+        isScrolled || isMobileMenuOpen
           ? "bg-surface/60 backdrop-blur-md border-border shadow-sm"
           : "bg-transparent"
       )}
@@ -80,9 +81,59 @@ export function Navbar() {
               <a href={profile.resumeUrl} target="_blank" rel="noopener noreferrer">Resume</a>
             </Button>
           )}
-          {/* Mobile Navigation Toggle could go here */}
+          {/* Mobile Navigation Toggle */}
+          <button
+            className="md:hidden p-2 text-foreground transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? (
+              <svg key="close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            ) : (
+              <svg key="menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            )}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="md:hidden overflow-hidden bg-surface/95 backdrop-blur-xl border-b border-border shadow-2xl"
+          >
+            <div className="flex flex-col px-4 py-6 gap-2">
+              {navLinks.map((link) => {
+                const isActive = location.pathname === link.path;
+                return (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={cn(
+                      "text-lg font-semibold px-4 py-3 rounded-xl transition-all duration-300",
+                      isActive
+                        ? "text-primary dark:text-blue-400 bg-primary/10 border border-primary/20 shadow-[0_0_15px_rgba(37,99,235,0.05)]"
+                        : "text-muted-foreground hover:text-foreground hover:bg-surface"
+                    )}
+                  >
+                    {link.name}
+                  </Link>
+                )
+              })}
+              {profile?.resumeUrl && (
+                <Button asChild className="w-full mt-4 rounded-xl py-6 text-base font-semibold shadow-primary/20 shadow-lg">
+                  <a href={profile.resumeUrl} target="_blank" rel="noopener noreferrer">Download Resume</a>
+                </Button>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   )
 }

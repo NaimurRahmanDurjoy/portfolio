@@ -35,8 +35,8 @@
     "architecture": "Event-driven architecture utilizing Laravel queues for background jobs and Reverb for real-time WebSocket communication.",
     "databaseDesign": "Relational schema prioritizing referential integrity for financial and stock data.",
     "deployment": "Deployed on Linux VPS using Nginx, configured with Laravel Horizon for queue management.",
-    "liveUrl": "https://resdine.com",
-    "githubUrl": "https://github.com/naim/resdine",
+    "liveUrl": "https://resdine.onrender.com",
+    "githubUrl": "https://github.com/naimurRahmanDurjoy/resdine",
     "featured": true
   },
   {

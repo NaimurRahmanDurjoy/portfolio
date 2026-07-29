@@ -205,7 +205,7 @@ export default function Home() {
               <div key={project.id} className="w-[65vw] md:w-[280px] lg:w-[320px] whitespace-normal shrink-0 p-4 border border-border rounded-xl glass hover:border-primary/50 transition-colors flex flex-col relative z-20 group/card">
                 <div className="relative w-full aspect-video rounded-md overflow-hidden mb-3 bg-muted/20 border border-border">
                   {project.thumbnail ? (
-                    <img src={project.thumbnail} alt={project.title} className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500" />
+                    <img src={project.thumbnail} alt={project.title} className="w-full h-full object-contain p-4 group-hover/card:scale-105 transition-transform duration-500" />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/40 font-medium tracking-widest text-[10px] uppercase">No Preview</div>
                   )}
@@ -227,7 +227,7 @@ export default function Home() {
               <div key={`dup-${project.id}`} className="w-[65vw] md:w-[280px] lg:w-[320px] whitespace-normal shrink-0 p-4 border border-border rounded-xl glass hover:border-primary/50 transition-colors flex flex-col relative z-20 group/card">
                 <div className="relative w-full aspect-video rounded-md overflow-hidden mb-3 bg-muted/20 border border-border">
                   {project.thumbnail ? (
-                    <img src={project.thumbnail} alt={project.title} className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500" />
+                    <img src={project.thumbnail} alt={project.title} className="w-full h-full object-contain p-4 group-hover/card:scale-105 transition-transform duration-500" />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/40 font-medium tracking-widest text-[10px] uppercase">No Preview</div>
                   )}
