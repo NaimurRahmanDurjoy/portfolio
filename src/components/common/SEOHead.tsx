@@ -41,6 +41,21 @@ export function SEOHead({
       <meta name="twitter:title" content={pageTitle} />
       <meta name="twitter:description" content={pageDesc} />
       <meta name="twitter:image" content={pageImage} />
+
+      {/* Google Structured Data / Knowledge Graph Mapping */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Naimur Rahman",
+          "jobTitle": "Software Engineer",
+          "url": "https://portfolio-naim9.vercel.app",
+          "sameAs": [
+            "https://github.com/naimurRahmanDurjoy",
+            "https://linkedin.com/in/-naimur-rahman-"
+          ]
+        })}
+      </script>
     </Helmet>
   );
 }
