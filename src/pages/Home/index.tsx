@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
-import { Loader2, Monitor, Briefcase, Link as LinkIcon, CheckCircle2, Mail } from "lucide-react";
+import { Loader2, Monitor, Briefcase, Link as LinkIcon, CheckCircle2, Mail, ArrowRight } from "lucide-react";
 
 import { SEOHead } from "@/components/common/SEOHead";
 
@@ -108,7 +108,7 @@ export default function Home() {
                     <Briefcase className="w-6 h-6" />
                   </div>
                   <div>
-                    <div className="text-2xl font-black text-foreground">1.5+</div>
+                    <div className="text-2xl font-black text-foreground">1.7+</div>
                     <div className="text-xs text-muted-foreground font-bold uppercase tracking-widest mt-0.5">Years Exp</div>
                   </div>
                 </div>
@@ -192,55 +192,186 @@ export default function Home() {
       </SectionContainer>
 
       {/* Featured Projects */}
-      <SectionContainer className="overflow-hidden relative">
-        <SectionHeading title="Featured Projects" subtitle="Some of my best work." className="relative z-20" />
+      <SectionContainer className="relative">
+        <div className="flex flex-col lg:flex-row gap-12 items-start relative w-full">
+          {/* Left Column (Sticky) */}
+          <AnimatedWrapper variants={slideUp} className="w-full lg:w-1/3 lg:sticky lg:top-32 flex flex-col justify-center z-10">
+            <SectionHeading
+              title="Featured Work"
+              subtitle="Production-ready applications built to solve real business problems and deliver measurable results."
+              className="text-left"
+            />
+            <p className="text-muted-foreground mt-4 mb-8 leading-relaxed">
+              Here is a curated selection of my latest engineering projects, focusing on scalable architecture, seamless user experiences, and modern tech stacks.
+            </p>
+            <Button asChild size="lg" className="w-fit rounded-xl shadow-lg shadow-primary/20">
+              <Link to="/projects">View All Projects &rarr;</Link>
+            </Button>
+          </AnimatedWrapper>
 
-        {/* Gradients for smooth fading edges */}
-        <div className="absolute inset-y-0 left-0 w-8 md:w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none mt-24"></div>
-        <div className="absolute inset-y-0 right-0 w-8 md:w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none mt-24"></div>
+          {/* Right Column (Bento Grid) */}
+          <div className="w-full lg:w-2/3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
 
-        <div className="flex w-full overflow-hidden group">
-          <div className="flex animate-marquee min-w-full shrink-0 flex-nowrap items-stretch gap-6 mr-6 group-hover:[animation-play-state:paused]">
-            {projects?.map((project) => (
-              <div key={project.id} className="w-[65vw] md:w-[280px] lg:w-[320px] whitespace-normal shrink-0 p-4 border border-border rounded-xl glass hover:border-primary/50 transition-colors flex flex-col relative z-20 group/card">
-                <div className="relative w-full aspect-video rounded-md overflow-hidden mb-3 bg-muted/20 border border-border">
-                  {project.thumbnail ? (
-                    <img src={project.thumbnail} alt={project.title} className="w-full h-full object-contain p-4 group-hover/card:scale-105 transition-transform duration-500" />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/40 font-medium tracking-widest text-[10px] uppercase">No Preview</div>
-                  )}
-                </div>
-                <h3 className="text-lg font-bold mb-1.5 leading-tight">{project.title}</h3>
-                <p className="text-muted-foreground mb-4 flex-1 text-[13px] leading-snug line-clamp-2">{project.description}</p>
-                <div className="mt-auto">
-                  <Button asChild size="sm" className="w-full">
-                    <Link to={`/projects/${project.slug}`}>View Case Study</Link>
-                  </Button>
-                </div>
-              </div>
-            ))}
-          </div>
+              {/* Hero Project (Spans 2 cols on md) */}
+              {projects && projects.length > 0 && (
+                <AnimatedWrapper variants={slideUp} className="md:col-span-2 group relative w-full glass border border-border rounded-3xl overflow-hidden hover:border-primary/50 hover:shadow-[0_0_40px_-15px_rgba(var(--primary),0.4)] transition-all duration-500">
+                  <div className="flex flex-col">
+                    {/* Image Section */}
+                    <div className="relative w-full h-56 md:h-72 overflow-hidden bg-surface border-b border-border/50 shrink-0">
+                      <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors z-10" />
+                      {projects[0].thumbnail ? (
+                        <img
+                          src={projects[0].thumbnail}
+                          alt={projects[0].title}
+                          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-muted-foreground bg-surface">No Image Provided</div>
+                      )}
+                      <div className="absolute top-6 left-6 z-20 flex gap-2">
+                        <Badge variant="secondary" className="bg-background/80 backdrop-blur-md text-foreground border-border/50 shadow-sm text-sm px-3 py-1 rounded-full">
+                          {projects[0].type}
+                        </Badge>
+                      </div>
+                    </div>
 
-          {/* Duplicate loop to create seamless visual loop */}
-          <div className="flex animate-marquee min-w-full shrink-0 flex-nowrap items-stretch gap-6 mr-6 group-hover:[animation-play-state:paused]" aria-hidden="true">
-            {projects?.map((project) => (
-              <div key={`dup-${project.id}`} className="w-[65vw] md:w-[280px] lg:w-[320px] whitespace-normal shrink-0 p-4 border border-border rounded-xl glass hover:border-primary/50 transition-colors flex flex-col relative z-20 group/card">
-                <div className="relative w-full aspect-video rounded-md overflow-hidden mb-3 bg-muted/20 border border-border">
-                  {project.thumbnail ? (
-                    <img src={project.thumbnail} alt={project.title} className="w-full h-full object-contain p-4 group-hover/card:scale-105 transition-transform duration-500" />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/40 font-medium tracking-widest text-[10px] uppercase">No Preview</div>
-                  )}
-                </div>
-                <h3 className="text-lg font-bold mb-1.5 leading-tight">{project.title}</h3>
-                <p className="text-muted-foreground mb-4 flex-1 text-[13px] leading-snug line-clamp-2">{project.description}</p>
-                <div className="mt-auto">
-                  <Button asChild size="sm" className="w-full">
-                    <Link to={`/projects/${project.slug}`}>View Case Study</Link>
-                  </Button>
-                </div>
-              </div>
-            ))}
+                    {/* Content Section */}
+                    <div className="p-6 md:p-8 flex flex-col flex-1 relative z-20 bg-background/40">
+                      <div className="mb-4">
+                        <h3 className="text-2xl md:text-3xl font-bold group-hover:text-primary transition-colors mb-2">
+                          {projects[0].title}
+                        </h3>
+                        <p className="text-base text-foreground font-semibold leading-snug">
+                          {projects[0].subtitle || projects[0].description}
+                        </p>
+                      </div>
+
+                      <p className="text-muted-foreground mb-6 line-clamp-2">
+                        {projects[0].problemStatement || projects[0].description}
+                      </p>
+
+                      {/* Achievements */}
+                      {projects[0].achievements && projects[0].achievements.length > 0 && (
+                        <ul className="space-y-2 mb-6">
+                          {projects[0].achievements.slice(0, 2).map((achievement, i) => (
+                            <li key={i} className="flex items-start gap-3 text-sm font-medium text-foreground/80">
+                              <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                              {achievement}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+
+                      <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-border/50 mt-auto">
+                        {/* Tech Stack */}
+                        <div className="flex flex-wrap gap-2">
+                          {projects[0].technologies.slice(0, 3).map(tech => (
+                            <Badge key={tech} variant="outline" className="py-1 px-3 bg-primary/5 text-primary border-primary/20 rounded-md">
+                              {tech}
+                            </Badge>
+                          ))}
+                          {projects[0].technologies.length > 3 && (
+                            <Badge variant="outline" className="py-1 px-2 border-border text-muted-foreground">
+                              +{projects[0].technologies.length - 3}
+                            </Badge>
+                          )}
+                        </div>
+
+                        <div className="flex items-center gap-2">
+                          {projects[0].githubUrl && (
+                            <Button variant="outline" size="icon" asChild className="rounded-xl border-border/50 glass hover:text-primary hover:border-primary/50">
+                              <a href={projects[0].githubUrl} target="_blank" rel="noreferrer" aria-label="GitHub Repository">
+                                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg>
+                              </a>
+                            </Button>
+                          )}
+                          {projects[0].liveUrl && (
+                            <Button variant="outline" size="icon" asChild className="rounded-xl border-border/50 glass hover:text-primary hover:border-primary/50">
+                              <a href={projects[0].liveUrl} target="_blank" rel="noreferrer" aria-label="Live Site">
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                              </a>
+                            </Button>
+                          )}
+                          <Button asChild size="icon" className="rounded-xl shadow-lg shadow-primary/20">
+                            <Link to={`/projects/${projects[0].slug}`}>
+                              <ArrowRight className="w-5 h-5" />
+                            </Link>
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </AnimatedWrapper>
+              )}
+
+              {/* Small Project Cards (Col span 1) */}
+              {projects?.slice(1, 3).map((project) => (
+                <AnimatedWrapper key={project.id} variants={slideUp} className="group col-span-1 flex flex-col glass border border-border rounded-3xl overflow-hidden hover:border-primary/50 hover:shadow-[0_0_30px_-15px_rgba(var(--primary),0.3)] transition-all duration-300">
+                  {/* Project Image */}
+                  <div className="relative w-full h-40 overflow-hidden bg-surface shrink-0 border-b border-border/50">
+                    <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors z-10" />
+                    {project.thumbnail ? (
+                      <img
+                        src={project.thumbnail}
+                        alt={project.title}
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-muted-foreground bg-surface">No Image Provided</div>
+                    )}
+                    <div className="absolute top-4 left-4 z-20">
+                      <Badge variant="secondary" className="bg-background/80 backdrop-blur-md text-foreground border-border/50 shadow-sm text-xs px-2.5 py-0.5 rounded-full">
+                        {project.type}
+                      </Badge>
+                    </div>
+                  </div>
+
+                  {/* Project Content */}
+                  <div className="p-6 flex flex-col flex-1 relative z-20 bg-background/40">
+                    <div className="flex justify-between items-start mb-3">
+                      <h3 className="text-xl font-bold group-hover:text-primary transition-colors line-clamp-1">
+                        {project.title}
+                      </h3>
+                    </div>
+
+                    <p className="text-muted-foreground mb-4 line-clamp-2 text-sm">
+                      {project.description}
+                    </p>
+
+                    {/* Tech Stack */}
+                    <div className="flex flex-wrap gap-1.5 mb-5 mt-auto">
+                      {project.technologies.slice(0, 3).map(tech => (
+                        <Badge key={tech} variant="outline" className="text-[10px] py-0.5 px-2 bg-primary/5 text-primary border-primary/20">
+                          {tech}
+                        </Badge>
+                      ))}
+                      {project.technologies.length > 3 && (
+                        <Badge variant="outline" className="text-[10px] py-0.5 px-1.5 border-border text-muted-foreground">
+                          +{project.technologies.length - 3}
+                        </Badge>
+                      )}
+                    </div>
+
+                    <div className="pt-4 border-t border-border/50">
+                      <Button asChild variant="ghost" className="w-full group/btn hover:bg-primary/10 hover:text-primary transition-colors rounded-xl">
+                        <Link to={`/projects/${project.slug}`} className="flex items-center justify-center gap-2">
+                          View Case Study
+                          <svg className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </Link>
+                      </Button>
+                    </div>
+                  </div>
+                </AnimatedWrapper>
+              ))}
+            </div>
+
+            {/* Mobile Only View All Button */}
+            <div className="mt-8 flex justify-center lg:hidden">
+              <Button asChild variant="outline" size="lg" className="rounded-xl border-border/50 glass hover:bg-surface text-foreground w-full sm:w-auto shadow-sm shadow-primary/5">
+                <Link to="/projects">View All Projects &rarr;</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </SectionContainer>
@@ -281,6 +412,36 @@ export default function Home() {
             <Link to="/experience">View Full Experience &rarr;</Link>
           </Button>
         </div>
+      </SectionContainer>
+
+      {/* CTA Section */}
+      <SectionContainer className="mb-20">
+        <AnimatedWrapper variants={slideUp} className="relative overflow-hidden glass rounded-3xl p-10 md:p-16 border border-border/50 text-center shadow-2xl">
+          {/* Background effects */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-primary/5 to-transparent pointer-events-none"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-primary/20 blur-[100px] rounded-full pointer-events-none"></div>
+
+          <div className="relative z-10 flex flex-col items-center">
+            <h2 className="text-3xl md:text-5xl font-black mb-6 tracking-tight text-foreground leading-[1.2] md:leading-[1.15]">
+              Have a project in mind? <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Let's build it together.</span>
+            </h2>
+            <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
+              I'm always open to discussing product design work or partnership opportunities. Let's create an experience your users will love.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+              <Button asChild size="lg" className="h-14 px-8 text-lg rounded-xl shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all">
+                <Link to="/contact">Get in Touch</Link>
+              </Button>
+              {profile.email && (
+                <Button asChild variant="outline" size="lg" className="h-14 px-8 text-lg rounded-xl glass border-border hover:bg-surface">
+                  <a href={`mailto:${profile.email}`}>Email Me Directly</a>
+                </Button>
+              )}
+            </div>
+          </div>
+        </AnimatedWrapper>
       </SectionContainer>
     </div>
   )

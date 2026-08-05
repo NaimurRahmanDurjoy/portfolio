@@ -106,6 +106,40 @@
   },
   {
     "id": "proj-4",
+    "slug": "printer-mis",
+    "title": "PrinterMis",
+    "subtitle": "Printing & Cylinder Management SaaS",
+    "type": "Company",
+    "category": "SaaS",
+    "description": "A comprehensive printing management SaaS acting as a mediator for printing companies. It streamlines the process of client orders for printing and cylinders for major brands like Mum drinks and Pran chanachur.",
+    "problemStatement": "Managing complex printing orders, cylinder specifications, and mediating between clients and printing companies manually was highly error-prone and inefficient.",
+    "solution": "Built a centralized SaaS platform to manage the end-to-end lifecycle of printing and cylinder orders, serving as a seamless mediator between enterprise clients and printing companies.",
+    "thumbnail": "",
+    "gallery": [],
+    "technologies": [
+      "Laravel",
+      "MySQL",
+      "Bootstrap",
+      "AJAX",
+      "JQuery"
+    ],
+    "features": [
+      "Client Order Management",
+      "Cylinder Specification Tracking",
+      "Mediator Dashboard",
+      "Real-time Order Status"
+    ],
+    "achievements": [
+      "Streamlined order processing for major national brands",
+      "Reduced manual entry errors by 85%"
+    ],
+    "challenges": [
+      "Architecting a scalable multi-tenant SaaS architecture for different printing companies."
+    ],
+    "featured": true
+  },
+  {
+    "id": "proj-5",
     "slug": "recipesys",
     "title": "RecipeSys",
     "subtitle": "Food Manufacturing Recipe Manager",

@@ -1,12 +1,12 @@
 [
   {
     "id": "stat-1",
-    "value": "1.5+",
+    "value": "1.7+",
     "label": "Years Experience"
   },
   {
     "id": "stat-2",
-    "value": "3+",
+    "value": "5+",
     "label": "Enterprise Projects"
   },
   {
@@ -16,7 +16,7 @@
   },
   {
     "id": "stat-4",
-    "value": "40+",
+    "value": "100+",
     "label": "Critical Bugs Fixed"
   },
   {
