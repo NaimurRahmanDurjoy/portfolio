@@ -48,7 +48,7 @@
     "category": "AI/SaaS",
     "description": "An AI-powered career OS platform designed to asynchronously parse, extract, and match candidate resume data with job descriptions using large language models.",
     "problemStatement": "Manual resume parsing and matching is time-consuming and often inaccurate, while standard applicant tracking systems rely on basic keyword matching instead of semantic AI.",
-    "solution": "Developed a full-stack platform featuring dual-layer Zod/Laravel validation, background queue workers for OpenAI integration, and centralized Zustand state for real-time client updates.",
+    "solution": "Developed a full-stack platform featuring dual-layer Zod/Laravel validation, background queue workers for dual OpenAI & Google Gemini AI integration, and a centralized Zustand state for real-time client updates.",
     "thumbnail": "/images/projects/careeros-thumbnail.jpg",
     "gallery": [],
     "technologies": [
@@ -58,19 +58,28 @@
       "Zustand",
       "Zod",
       "Tailwind CSS",
-      "OpenAI API"
+      "OpenAI API",
+      "Google Gemini AI",
+      "Stripe"
     ],
     "features": [
       "Background Async AI Processing via Queues",
       "Real-time Job Status Polling",
       "Dual-layer Input Validation",
-      "Google OAuth Integration"
+      "Google OAuth & Facebook Login Integration",
+      "PDF Resume Parsing",
+      "Stripe Payment Integration",
+      "Interactive Analytics Dashboard"
     ],
     "challenges": [
       "Ensuring stable background processing for AI response times.",
-      "Keeping client state synchronized with backend job status."
+      "Keeping client state synchronized with backend job status.",
+      "Securing Stripe webhook processing and synchronizing subscription statuses.",
+      "Extracting text cleanly from various unstructured PDF formats using Smalot."
     ],
-    "architecture": "Laravel backend utilizing queues and background workers communicating with OpenAI, supplying data to a React single-page application with centralized Zustand state.",
+    "architecture": "Event-driven Laravel 12 backend utilizing queues and background workers for asynchronous AI processing, communicating with OpenAI and Gemini, supplying data to a React 19 single-page application with centralized Zustand state.",
+    "deployment": "Deployed on Linux VPS using Nginx, configured with Laravel Horizon for queue management.",
+    "liveUrl": "https://livecareeros.vercel.app",
     "featured": true
   },
   {
