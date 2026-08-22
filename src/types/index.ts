@@ -44,6 +44,7 @@ export interface Project {
   thumbnail: string;
   gallery: string[];
   technologies: string[];
+  achievements?: string[];
   features: string[];
   challenges: string[];
   architecture?: string;
