@@ -2,39 +2,45 @@
   {
     "id": "proj-1",
     "slug": "resdine-erp",
-    "title": "Resdine ERP",
-    "subtitle": "Complete Restaurant Management System",
+    "title": "ResDine",
+    "subtitle": "Enterprise B2B Multi-Tenant Restaurant SaaS Platform",
     "type": "Personal",
-    "category": "ERP",
-    "description": "A comprehensive, all-in-one Enterprise Resource Planning system specifically tailored for modern restaurants. It handles everything from real-time order tracking and kitchen display systems to inventory management, recipe configuration, and staff roles.",
-    "problemStatement": "Restaurants often use disjointed software for POS, inventory, and back-office accounting, leading to data silos, inconsistencies, and high operational overhead.",
-    "solution": "Developed a unified ERP platform integrating POS, robust inventory control with recipe-level ingredient tracking, and an advanced DevAdmin panel for system health and cache monitoring.",
+    "category": "B2B SaaS",
+    "description": "A scalable, multi-tenant B2B restaurant SaaS platform hosting thousands of independent restaurant businesses on a single infrastructure. Features tenant-isolated POS, kitchen display system (KDS), dynamic subscription plans, customer ordering marketplace, and automated accounting.",
+    "problemStatement": "Standard restaurant ERPs are monolithic single-tenant systems that cannot scale to support multi-tenant restaurant chains or SaaS operations without massive database redundancy and data leakage risks.",
+    "solution": "Architected a Service-Oriented multi-tenant SaaS with Laravel 12 and Inertia.js (Vue 3). Implemented automatic query-level data isolation via HasTenant global scopes across 56+ tables, dynamic subscription modules, zero-storage client QR-code table ordering, and real-time WebSocket syncing with Laravel Reverb.",
     "thumbnail": "/images/projects/resdine-thumbnail.jpg",
     "gallery": [
       "/images/projects/resdine-1.jpg",
       "/images/projects/resdine-2.jpg"
     ],
     "technologies": [
-      "Laravel",
+      "Laravel 12",
       "Vue 3",
       "Inertia.js",
       "Tailwind CSS",
-      "Reverb (WebSockets)",
-      "MySQL"
+      "Laravel Reverb (WebSockets)",
+      "TiDB / MySQL",
+      "Redis",
+      "Stripe / SSLCommerz"
     ],
     "features": [
-      "Real-time event-driven notifications",
-      "Advanced Inventory & Recipe Consistency Analysis",
-      "Job-wise Due Collection",
-      "Granular DevAdmin System Tools"
+      "Multi-Tenant Isolation with HasTenant Global Scopes across 56+ tables",
+      "DevAdmin SaaS Control Center with dynamic subscription tiers and module access",
+      "Public FoodPanda-Style Customer Marketplace with Bento Grid tenant directory",
+      "Zero-Storage Client-Side QR Codes for direct digital menu table ordering",
+      "Real-time Kitchen Display System (KDS) & line prep views via WebSockets",
+      "Recipe-level ingredient inventory deduction and automated stock ledgers",
+      "Integrated Double-Entry Accounting (COA, Trial Balance, P&L) and HRM/Payroll"
     ],
     "challenges": [
-      "Migrating from legacy database-polling to a push-based WebSocket architecture",
-      "Ensuring accurate stock deduction based on complex recipe configurations"
+      "Enforcing ironclad data isolation across 56+ database tables using global Eloquent traits and scopes without performance bottlenecks.",
+      "Invalidating cached Redis sessions automatically across all tenant users when subscription tiers are modified.",
+      "Migrating real-time order tracking to a push-based WebSocket architecture with Laravel Reverb."
     ],
-    "architecture": "Event-driven architecture utilizing Laravel queues for background jobs and Reverb for real-time WebSocket communication.",
-    "databaseDesign": "Relational schema prioritizing referential integrity for financial and stock data.",
-    "deployment": "Deployed on Linux VPS using Nginx, configured with Laravel Horizon for queue management.",
+    "architecture": "Service-Oriented multi-tenant architecture with Inertia.js SPA hydration, Redis cache-busting, Laravel Reverb WebSockets for real-time dispatch, and distributed MySQL/TiDB.",
+    "databaseDesign": "Multi-tenant relational schema partitioned by tenant_id with global query enforcement, subscription plan pivot relations, and double-entry transaction ledgers.",
+    "deployment": "Deployed on Linux VPS / Render using Nginx, TiDB / MySQL, Redis, and Laravel Horizon for queue and WebSocket workers.",
     "liveUrl": "https://resdine.onrender.com",
     "githubUrl": "https://github.com/naimurRahmanDurjoy/resdine",
     "featured": true
@@ -43,20 +49,27 @@
     "id": "proj-2",
     "slug": "career-os",
     "title": "Career OS",
-    "subtitle": "AI-Powered Resume Analysis & ATS",
+    "subtitle": "AI-Powered Career Intelligence, ATS & Job Tracker",
     "type": "Personal",
     "category": "AI/SaaS",
+<<<<<<< Updated upstream
     "description": "An AI-powered career OS platform designed to asynchronously parse, extract, and match candidate resume data with job descriptions using large language models.",
     "problemStatement": "Manual resume parsing and matching is time-consuming and often inaccurate, while standard applicant tracking systems rely on basic keyword matching instead of semantic AI.",
     "solution": "Developed a full-stack platform featuring dual-layer Zod/Laravel validation, background queue workers for dual OpenAI & Google Gemini AI integration, and a centralized Zustand state for real-time client updates.",
+=======
+    "description": "An end-to-end AI career intelligence and job search operating system. Combines multi-source job circular aggregation, asynchronous AI resume-to-job matching, intelligent ATS CV builder, mock interview simulations, application Kanban tracking, and networking CRM.",
+    "problemStatement": "Job hunters juggle fragmented job boards, generic keyword ATS rejections, tedious manual resume formatting, and no centralized way to practice role-specific technical interviews.",
+    "solution": "Built a production-grade full-stack platform featuring a Laravel 12 API backend with queue workers/Supervisor, PostgreSQL, React 19 SPA, and OpenAI API. Integrated live automated circular scraping, interactive ATS CV builder, AI mock test evaluations, Kanban application tracker, and multi-gateway billing (Stripe & SSLCommerz).",
+>>>>>>> Stashed changes
     "thumbnail": "/images/projects/careeros-thumbnail.jpg",
     "gallery": [],
     "technologies": [
-      "Laravel API",
-      "PostgreSQL",
-      "React",
+      "Laravel 12 API",
+      "React 19",
+      "Tailwind CSS v4",
       "Zustand",
       "Zod",
+<<<<<<< Updated upstream
       "Tailwind CSS",
       "OpenAI API",
       "Google Gemini AI",
@@ -80,6 +93,112 @@
     "architecture": "Event-driven Laravel 12 backend utilizing queues and background workers for asynchronous AI processing, communicating with OpenAI and Gemini, supplying data to a React 19 single-page application with centralized Zustand state.",
     "deployment": "Deployed on Linux VPS using Nginx, configured with Laravel Horizon for queue management.",
     "liveUrl": "https://livecareeros.vercel.app",
+=======
+      "OpenAI API",
+      "PostgreSQL",
+      "Docker & Supervisor",
+      "Stripe / SSLCommerz"
+    ],
+    "features": [
+      "Asynchronous AI Resume Parsing & Deep Job Match Score Evaluation",
+      "Intelligent ATS CV Builder with dynamic export and AI tailoring",
+      "Multi-Source Job Circulars Aggregation with automated sync and prune schedulers",
+      "Interactive Job Application Kanban Tracking & Networking CRM",
+      "AI Mock Test Engine with dynamic question generation and instant evaluation",
+      "AI Career Tools: Cover Letter Generator, Interview Prep, Salary Negotiation Coach, and 24/7 AI Coach",
+      "Public Shareable Portfolio View & Profile Customization",
+      "Enterprise Auth with 6-digit email OTP verification & Google OAuth"
+    ],
+    "challenges": [
+      "Handling long-running LLM completions asynchronously via queues and Supervisor workers without causing HTTP timeouts.",
+      "Designing a normalized schema for multi-source job circular scraping while maintaining lightning-fast candidate search.",
+      "Real-time state synchronization between React client (Zustand) and backend queue job progress."
+    ],
+    "architecture": "Decoupled headless architecture: Laravel REST API with queue workers, Redis/Supervisor, and PostgreSQL, powering a React 19 SPA with Zustand state management and a Chrome Extension handshake.",
+    "databaseDesign": "PostgreSQL relational schema supporting user portfolios, multi-tenant billing history, circular scraping catalogs, and structured resume parsing vectors.",
+    "deployment": "Dockerized deployment with Supervisor process managers for Laravel scheduler and background queue workers.",
+    "liveUrl": "https://livecareeros.vercel.app",
+    "githubUrl": "https://github.com/NaimurRahmanDurjoy/career-os",
+    "featured": true
+  },
+  {
+    "id": "proj-6",
+    "slug": "travel-suit",
+    "title": "Travel Suit",
+    "subtitle": "Full-Stack Hotel & Resort Booking System",
+    "type": "Personal",
+    "category": "Hospitality",
+    "description": "A full-stack hotel and resort booking platform featuring real-time room availability, add-on hospitality service reservations, Pusher WebSocket live chat between guests and managers, and a multi-tiered premium customer loyalty discount system.",
+    "problemStatement": "Hospitality businesses often face disconnected booking pipelines, lack direct real-time communication between guests and front-desk managers, and miss automated loyalty reward mechanisms.",
+    "solution": "Engineered a full-featured Laravel web platform with Blade and Bootstrap 5, complete with role-based access control (Admin, Manager, Customer), live messaging via Pusher WebSockets, dynamic date-range availability checks, and automatic Silver/Gold loyalty discounts.",
+    "thumbnail": "/images/projects/travelsuit-thumbnail.JPG",
+    "gallery": [],
+    "technologies": [
+      "Laravel 12",
+      "Laravel Blade",
+      "Bootstrap 5",
+      "MySQL",
+      "Pusher (WebSockets)",
+      "Laravel Breeze"
+    ],
+    "features": [
+      "Role-Based Access Control (Admin, Hotel Manager, Customer)",
+      "Real-time Room Availability & Date-range Reservation Engine",
+      "Add-on Hospitality Services Booking (Spa, Dining, Gym, Room Service)",
+      "Real-time Customer-to-Manager Live Chat via Pusher WebSockets",
+      "Tiered Premium Loyalty Subscriptions (Silver 5%, Gold 10% auto-discounts)",
+      "Manager Operations Panel for Room CRUD, Service Pricing, and Booking Approval"
+    ],
+    "challenges": [
+      "Preventing double-booking and date overlaps through database-level transaction locking during checkout.",
+      "Building persistent real-time chat between guests and staff using Pusher WebSocket channels with unread status tracking."
+    ],
+    "architecture": "Modular MVC architecture in Laravel 12 with role-based middleware guards, WebSocket event broadcasting via Pusher, and clean Blade templating.",
+    "databaseDesign": "Relational MySQL schema modeling rooms, amenities JSON, bookings, pivot service relationships, message history, and premium membership tiers.",
+    "deployment": "Deployable on standard LAMP/LEMP stacks with PHP 8.2+, MySQL, and Pusher Channels.",
+    "githubUrl": "https://github.com/NaimurRahmanDurjoy/hotel-booking-system",
+    "featured": true
+  },
+  {
+    "id": "proj-7",
+    "slug": "cartessa",
+    "title": "Cartessa",
+    "subtitle": "Multi-Tenant E-Commerce SaaS Platform",
+    "type": "Personal",
+    "category": "E-Commerce / SaaS",
+    "description": "A modern, multi-tenant headless e-commerce SaaS platform allowing independent merchants to launch and manage branded online storefronts with infinite dynamic product variants, automated order fulfillment, glassmorphic UI, and platform administration.",
+    "problemStatement": "Traditional e-commerce platforms struggle with multi-tenant data isolation, lack support for arbitrary dynamic product variant matrices without rigid schema changes, and couple frontends tightly to legacy CMS engines.",
+    "solution": "Designed a strictly decoupled, API-driven architecture pairing a Laravel 11 Sanctum REST API with a React 18 & Framer Motion SPA. Features store_id scoped multi-tenancy, dynamic variant matrix resolution, slug-based tenant store routing, and auto-printable sales reporting.",
+    "thumbnail": "/images/projects/cartessa-thumbnail.png",
+    "gallery": [],
+    "technologies": [
+      "Laravel 11",
+      "React 18",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Laravel Sanctum",
+      "MySQL",
+      "Vite",
+      "Lucide React"
+    ],
+    "features": [
+      "Multi-Tenant Isolation with store_id scoping across products, categories, and orders",
+      "Platform Superadmin Control Center for tenant onboarding and subscription management",
+      "Merchant Dashboard with nested categories, dynamic variant matrix, and order fulfillment",
+      "Sales Analytics & Auto-Print PDF reports for streamlined store accounting",
+      "Headless Glassmorphic Customer Storefront with Framer Motion animations",
+      "Dynamic Slug-based Tenant Routing and Client-Side Cart Management"
+    ],
+    "challenges": [
+      "Designing a normalized database schema separating products, product_variants, and variant_attributes to support arbitrary variant permutations (Size, Color, Material).",
+      "Ensuring financial data integrity by locking historical unit prices into order items upon checkout.",
+      "Building a decoupled SPA storefront that resolves tenant identity dynamically from URL path slugs without leaking cross-tenant data."
+    ],
+    "architecture": "Headless decoupled architecture: Laravel 11 RESTful API backend secured by Sanctum, serving a high-performance React 18 (Vite) Single Page Application.",
+    "databaseDesign": "Normalized multi-tenant relational database with strict store_id scoping, dynamic variant attributes, historical pricing snapshots, and subscription tiers.",
+    "deployment": "Production-ready REST API and Vite build pipeline with MySQL database.",
+    "githubUrl": "https://github.com/NaimurRahmanDurjoy/saas-full-stack-task/tree/master/ecommerce-saas",
+>>>>>>> Stashed changes
     "featured": true
   },
   {

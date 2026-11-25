@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 import { SEOHead } from "@/components/common/SEOHead";
+import { LaptopMockup } from "@/components/common/LaptopMockup";
 
 export default function ProjectDetails() {
   const { slug } = useParams<{ slug: string }>();
@@ -71,19 +72,20 @@ export default function ProjectDetails() {
       {/* Main Content Layout */}
       <SectionContainer className="py-16 md:py-24">
 
-        {/* Full Width Thumbnail */}
-        {project.thumbnail && (
-          <AnimatedWrapper variants={slideUp} className="mb-16 md:mb-24 w-full">
-            <div className="relative w-full aspect-video md:aspect-[21/9] rounded-3xl overflow-hidden glass border border-border/50 shadow-2xl group">
-              <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors z-10" />
-              <img
-                src={project.thumbnail}
-                alt={project.title}
-                className="w-full h-full object-cover object-top border-4 border-surface/50 rounded-3xl"
-              />
-            </div>
-          </AnimatedWrapper>
-        )}
+        {/* Showcase Laptop Mockup */}
+        <AnimatedWrapper variants={slideUp} className="mb-16 md:mb-24 w-full flex justify-center">
+          <div className="w-full max-w-5xl group">
+            <LaptopMockup
+              src={project.thumbnail}
+              alt={project.title}
+              title={project.title}
+              category={project.category}
+              liveUrl={project.liveUrl}
+              variant="showcase"
+              className="w-full"
+            />
+          </div>
+        </AnimatedWrapper>
 
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
 
