@@ -108,7 +108,7 @@ export default function Home() {
                     <Briefcase className="w-6 h-6" />
                   </div>
                   <div>
-                    <div className="text-2xl font-black text-foreground">1.7+</div>
+                    <div className="text-2xl font-black text-foreground">2+</div>
                     <div className="text-xs text-muted-foreground font-bold uppercase tracking-widest mt-0.5">Years Exp</div>
                   </div>
                 </div>
