@@ -9,6 +9,6 @@
     "Portfolio",
     "Web Development"
   ],
-  "openGraphImage": "/images/og-image.jpg",
-  "canonicalUrl": "https://portfolio.naim.dev"
+  "openGraphImage": "../assets/profile.png",
+  "canonicalUrl": "https://portfolio-naim9.vercel.app"
 }
